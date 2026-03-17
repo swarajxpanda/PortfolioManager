@@ -1,19 +1,28 @@
-from dash import Input, Output, html
+from dash import Input, Output, html, callback_context
 
 
 def register_callbacks(app):
     """
-    Tab-switching callback:
-    Reads the selected tab value from dcc.Tabs and renders
-    the matching content from the dcc.Store data.
+    Dropdown toggle callbacks for fragility tab.
+    Each dropdown operates independently.
     """
 
     @app.callback(
-        Output("tab-content", "children"),
-        Input("tabs", "value"),
+        Output("cluster-body", "className"),
+        Input("cluster-toggle", "n_clicks"),
+        prevent_initial_call=True,
     )
-    def switch_tab(tab_id):
-        # Content is pre-rendered inside each dcc.Tab,
-        # so this callback is a placeholder for any future
-        # dynamic tab behaviour.
-        return html.Div()
+    def toggle_cluster(n):
+        if n and n % 2 == 1:
+            return "dropdown-body dropdown-open"
+        return "dropdown-body dropdown-closed"
+
+    @app.callback(
+        Output("bets-body", "className"),
+        Input("bets-toggle", "n_clicks"),
+        prevent_initial_call=True,
+    )
+    def toggle_bets(n):
+        if n and n % 2 == 1:
+            return "dropdown-body dropdown-open"
+        return "dropdown-body dropdown-closed"

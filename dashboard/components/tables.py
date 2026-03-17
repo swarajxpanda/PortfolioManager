@@ -49,6 +49,8 @@ def build_exit_table(data):
     header = html.Tr([
         html.Th("Stock", className="col-text"),
         html.Th("LTP", className="col-num"),
+        html.Th("Invested (₹)", className="col-num"),
+        html.Th("Current Value (₹)", className="col-num"),
         html.Th("Return %", className="col-num"),
         html.Th("Loss", className="col-num"),
         html.Th("Risk", className="col-num"),
@@ -68,6 +70,8 @@ def build_exit_table(data):
             html.Tr([
                 html.Td(row["symbol"], className="col-text"),
                 html.Td(f"₹{row['ltp']:,.2f}", className="col-num"),
+                html.Td(f"₹{row['invested']:,.2f}", className="col-num"),
+                html.Td(f"₹{row['current_value']:,.2f}", className="col-num"),
                 html.Td(f"{row['return_pct']:.1f}%", className=f"col-num {ret_class}"),
                 html.Td(str(row["loss_severity"]), className="col-num"),
                 html.Td(str(row["risk_score"]), className="col-num"),

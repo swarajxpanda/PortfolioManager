@@ -6,11 +6,14 @@ from core.portfolio import build_portfolio_dataframe, compute_portfolio_health
 from engines.allocation_engine.engine import compute_allocation
 from engines.concentration_engine.engine import compute_concentration
 from engines.exit_engine.engine import compute_exit_signals
+from engines.fragility_engine.engine import compute_fragility
 from dashboard.shell import build_dashboard
+from dashboard.callbacks import register_callbacks
 
 
-app = Dash(__name__, title="Portfolio Manager", suppress_callback_exceptions=True)
+app = Dash(__name__, title="Portfolio Operating System", suppress_callback_exceptions=True)
 register_routes(app)
+register_callbacks(app)
 
 
 def serve_layout():
@@ -22,8 +25,9 @@ def serve_layout():
         allocation = compute_allocation(df)
         concentration = compute_concentration(df)
         exit_signals = compute_exit_signals(kite, df)
+        fragility = compute_fragility(kite, df)
 
-        return build_dashboard(health, allocation, concentration, exit_signals)
+        return build_dashboard(health, allocation, concentration, exit_signals, fragility)
 
     trigger_login()
 

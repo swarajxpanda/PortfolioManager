@@ -321,3 +321,379 @@ body {
   min-width: 24px;
   text-align: right;
 }
+
+/* =====================================================
+   FRAGILITY TAB — Action Cards
+===================================================== */
+
+.action-card {
+    flex: 1;
+    background: #fff;
+    padding: 24px;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid;
+    margin-bottom: 20px;
+    transition: box-shadow .3s ease;
+    animation: card-fade-in .45s ease both;
+}
+
+.action-card:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.09);
+}
+
+.action-card.danger { border-left-color: #c1121f; }
+.action-card.warning { border-left-color: #e07000; }
+.action-card.success { border-left-color: #1a7f37; }
+
+.action-type {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #666;
+}
+
+.action-message {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+/* =====================================================
+   FRAGILITY TAB — Premium Metric Strip
+===================================================== */
+
+.metric-strip {
+    display: flex;
+    gap: 0;
+    margin-bottom: 32px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    animation: card-fade-in .45s ease both;
+}
+
+.metric-strip-card {
+    flex: 1;
+    padding: 22px 24px;
+    border-left: 4px solid #e5e7eb;
+    transition: background .2s;
+}
+
+.metric-strip-card:first-child {
+    border-left: none;
+}
+
+.metric-strip-card:hover {
+    background: #fafafa;
+}
+
+.metric-strip-card.strip-red   { border-left-color: #c1121f; }
+.metric-strip-card.strip-amber { border-left-color: #e07000; }
+.metric-strip-card.strip-green { border-left-color: #1a7f37; }
+
+.strip-title {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: #888;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.strip-value {
+    font-size: 26px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 4px;
+}
+
+.strip-subtitle {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.strip-subtitle.strip-red   { color: #c1121f; }
+.strip-subtitle.strip-amber { color: #e07000; }
+.strip-subtitle.strip-green { color: #1a7f37; }
+.strip-subtitle.strip-neutral { color: #666; }
+
+/* =====================================================
+   Section Heading
+===================================================== */
+
+.section-heading {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: #555;
+    margin-bottom: 16px;
+}
+
+/* =====================================================
+   FRAGILITY TAB — Dropdowns Row
+===================================================== */
+
+.dropdowns-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.dropdown-section {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+    animation: card-fade-in .45s ease both;
+    overflow: hidden;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+    padding: 20px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #111;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background .2s;
+    user-select: none;
+}
+
+.dropdown-toggle::after {
+    content: "▸";
+    font-size: 14px;
+    color: #999;
+    transition: transform .25s ease;
+}
+
+.dropdown-toggle:hover {
+    background: #fafafa;
+}
+
+/* Closed state — body hidden */
+.dropdown-body.dropdown-closed {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 24px;
+    opacity: 0;
+    transition: max-height .3s ease, opacity .2s ease, padding .3s ease;
+}
+
+/* Open state — body visible */
+.dropdown-body.dropdown-open {
+    max-height: 2000px;
+    overflow: visible;
+    padding: 0 24px 20px;
+    opacity: 1;
+    transition: max-height .4s ease, opacity .3s ease, padding .3s ease;
+}
+
+/* Rotate arrow when sibling body is open */
+/* We use a JS-toggled class approach via Dash callbacks */
+
+/* =====================================================
+   Cluster Items
+===================================================== */
+
+.cluster-item {
+    padding: 14px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.cluster-item:last-child {
+    border-bottom: none;
+}
+
+.cluster-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.cluster-name {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.cluster-weight {
+    font-size: 13px;
+    color: #666;
+    font-variant-numeric: tabular-nums;
+}
+
+.badge-dominant {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: #c1121f;
+    color: #fff;
+}
+
+/* =====================================================
+   Stock Chips
+===================================================== */
+
+.chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.stock-chip {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    background: #f3f4f6;
+    color: #374151;
+    border-radius: 20px;
+    letter-spacing: .02em;
+    transition: background .15s;
+}
+
+.stock-chip:hover {
+    background: #e5e7eb;
+}
+
+.stock-chip.chip-warn {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+/* =====================================================
+   Bet Cards
+===================================================== */
+
+.bet-card {
+    padding: 14px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.bet-card:last-child {
+    border-bottom: none;
+}
+
+.bet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.bet-label {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.bet-risk {
+    font-size: 13px;
+    font-weight: 600;
+    color: #c1121f;
+    font-variant-numeric: tabular-nums;
+}
+
+.bet-bar-track {
+    height: 6px;
+    background: #f0f0f0;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.bet-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #c1121f, #e07000);
+    border-radius: 3px;
+    transition: width .4s ease;
+    min-width: 4px;
+}
+
+/* =====================================================
+   HTML Heatmap  (full-width, no scroll)
+===================================================== */
+
+.heatmap-section {
+    background: #fff;
+    padding: 28px;
+    border-radius: 14px;
+    margin-bottom: 32px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+    animation: card-fade-in .45s ease both;
+    overflow: hidden;
+}
+
+.hm-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 3px;
+    font-variant-numeric: tabular-nums;
+    table-layout: fixed;
+}
+
+.hm-corner {
+    width: 100px;
+}
+
+.hm-header {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    color: #888;
+    padding: 10px 4px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hm-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    padding: 10px 8px;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hm-cell {
+    font-size: 12px;
+    text-align: center;
+    padding: 12px 4px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: transform .15s;
+}
+
+.hm-cell:hover {
+    transform: scale(1.06);
+    z-index: 1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.hm-diag {
+    background: transparent !important;
+}
+
+/* =====================================================
+   FRAGILITY TAB — Stress Card
+===================================================== */
+
+.stress-value {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.stress-value.stress-green { color: #1a7f37; }
+.stress-value.stress-yellow { color: #e07000; }
+.stress-value.stress-red { color: #c1121f; }

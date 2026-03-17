@@ -75,6 +75,8 @@ def compute_exit_signals(kite, df):
     vols = {}
     rars = {}
 
+
+
     for _, row in df.iterrows():
         symbol = row["tradingsymbol"]
         token = row["instrument_token"]
@@ -98,6 +100,8 @@ def compute_exit_signals(kite, df):
         symbol = row["tradingsymbol"]
         ltp = row["last_price"]
         ret = row["return_pct"]
+        investment = row["investment"]
+        current_value = row["value"]
         weight = (row["value"] / total_value * 100) if total_value else 0
 
         ma50, ma200 = compute_moving_averages(histories[symbol])
@@ -114,6 +118,8 @@ def compute_exit_signals(kite, df):
         results.append({
             "symbol": symbol,
             "ltp": ltp,
+            "invested": investment,
+            "current_value": current_value,
             "return_pct": ret,
             "loss_severity": s1,
             "risk_score": s2,

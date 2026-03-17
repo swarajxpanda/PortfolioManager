@@ -4,3 +4,5 @@ dash-bootstrap-components
 pandas
 numpy
 python-dotenv
+scikit-learn>=1.0.0
+scipy>=1.7.0
