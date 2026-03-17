@@ -55,17 +55,3 @@ python app.py
 ```
 
 The dashboard will be available at `http://localhost:8050`. On first load, you'll be redirected to Zerodha login.
-
-## Customization
-
-### Modify Asset Categories
-Edit `CATEGORY_MAP` in [core/settings.py](core/settings.py).
-
-### Adjust Allocation Targets
-Update `CATEGORY_TARGETS` in [engines/allocation_engine/settings.py](engines/allocation_engine/settings.py).
-
-### Fine-tune Exit Signals
-Adjust scoring thresholds in [engines/exit_engine/settings.py](engines/exit_engine/settings.py).
-
-### Adjust Concentration Limits
-Update `TOP_N_THRESHOLD` and `LARGEST_THRESHOLD` in [engines/concentration_engine/settings.py](engines/concentration_engine/settings.py).
