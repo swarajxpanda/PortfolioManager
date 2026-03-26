@@ -47,7 +47,7 @@ A comprehensive Portfolio Analytics and Trading Dashboard. This project provides
    ```
 5. Run the server:
    ```bash
-   python main.py
+   uvicorn main:app --reload
    ```
 
 ### Frontend
