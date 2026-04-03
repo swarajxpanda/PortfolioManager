@@ -3,11 +3,13 @@ import api from "./api/client";
 import Login from "./pages/Login";
 import Overview from "./pages/Overview";
 import ExitSignals from "./pages/ExitSignals";
+import Fragility from "./pages/Fragility";
 import Header from "./components/layout/Header";
 
 const TABS = [
   { id: "overview", label: "Portfolio Overview" },
   { id: "exit",     label: "Exit Signals" },
+  { id: "fragility", label: "Portfolio Fragility" },
 ];
 
 export default function App() {
@@ -53,6 +55,7 @@ export default function App() {
       {/* Page content */}
       {activeTab === "overview" && <Overview />}
       {activeTab === "exit" && <ExitSignals />}
+      {activeTab === "fragility" && <Fragility />}
     </div>
   );
 }
